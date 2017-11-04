@@ -4,15 +4,24 @@
 // large and to the detriment of our heirs and successors. We intend this
 // dedication to be an overt act of relinquishment in perpetuity of all
 // present and future rights to this software under copyright law.
-// 
+//
 // For more information, see the file UNLICENSE at this repository's root.
 
 extern crate chrono;
 extern crate ddate;
 
 use ddate::DiscordianDate;
-use chrono::Local;
+use chrono::{Local, NaiveDate};
+use std::str::FromStr;
 
 fn main() {
-    println!("Today is {}", Local::today().to_poee());
+    if let Some(ymd) = std::env::args().nth(1) {
+        let date = NaiveDate::from_str(&ymd).unwrap_or_else(|_| {
+            println!("Could not parse provided date.");
+            ::std::process::exit(1);
+        });
+        println!("{} is {}", &date, &date.to_poee());
+    } else {
+        println!("Today is {}", Local::today().to_poee());
+    };
 }
