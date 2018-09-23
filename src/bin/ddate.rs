@@ -8,16 +8,15 @@
 // For more information, see the file UNLICENSE at this repository's root.
 
 use ddate::DiscordianDate;
-use chrono::{Local, NaiveDate};
-use std::str::FromStr;
+use chrono::Local;
 
 fn main() {
-    if let Some(ymd) = std::env::args().nth(1) {
-        let date = NaiveDate::from_str(&ymd).unwrap_or_else(|_| {
+    if let Some(timestr) = std::env::args().nth(1) {
+        let (dt, _) = dtparse::parse(&timestr).unwrap_or_else(|_| {
             println!("Could not parse provided date.");
             std::process::exit(1);
         });
-        println!("{} is {}", &date, &date.to_poee());
+        println!("{} is {}", &dt.date(), &dt.to_poee());
     } else {
         println!("Today is {}", Local::today().to_poee());
     };

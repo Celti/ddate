@@ -17,3 +17,12 @@ categories = ["date-and-time"]
 
 [dependencies]
 chrono = "0.4"
+dtparse = { version = "1.0", optional = true }
+
+[features]
+bin = ["dtparse"]
+
+[[bin]]
+name = "ddate"
+path = "src/bin/ddate.rs"
+required-features = ["bin"]
