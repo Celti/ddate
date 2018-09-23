@@ -18,7 +18,6 @@
 //! same name originally included in `util-linux` (though no features beyond
 //! simple output of the current date).
 
-extern crate chrono;
 use chrono::Datelike;
 
 /// The apostolic holydays of the Discordian calendar.
@@ -64,8 +63,6 @@ pub trait DiscordianDate: Datelike {
     /// # Examples
     ///
     /// ```
-    /// # extern crate ddate;
-    /// # extern crate chrono;
     /// use chrono::NaiveDate;
     /// use ddate::DiscordianDate;
     ///
