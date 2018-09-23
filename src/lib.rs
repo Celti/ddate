@@ -115,7 +115,7 @@ impl<T: Datelike> DiscordianDate for T {}
 
 /// A helper function to ordinalize a numeral.
 fn ordinalize(num: usize) -> String {
-    let s = format!("{}", num);
+    let s = num.to_string();
 
     let suffix = if s.ends_with('1') && !s.ends_with("11") {
         "st"
@@ -127,7 +127,7 @@ fn ordinalize(num: usize) -> String {
         "th"
     };
 
-    format!("{}{}", s, suffix)
+    s + suffix
 }
 
 
