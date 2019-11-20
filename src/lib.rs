@@ -55,7 +55,7 @@ const WEEK_DAYS: usize = 5;
 const CURSE_OF_GREYFACE: i32 = 1166;
 
 /// Extends chrono's
-/// [`Datelike`](https://docs.rs/chrono/0.4.0/chrono/trait.Datelike.html) to
+/// [`Datelike`](https://docs.rs/chrono/0.4/chrono/trait.Datelike.html) to
 /// display Discordian calendar dates.
 pub trait DiscordianDate: Datelike {
     /// Returns a Discordian calendar date string.
@@ -66,11 +66,9 @@ pub trait DiscordianDate: Datelike {
     /// use chrono::NaiveDate;
     /// use ddate::DiscordianDate;
     ///
-    /// # fn main() {
     /// let ddate = NaiveDate::from_ymd(2017, 11, 4).to_poee();
     ///
     /// assert_eq!("Pungenday, the 16th day of The Aftermath in the YOLD 3183", ddate);
-    /// # }
     /// ```
     fn to_poee(&self) -> String {
         let day = self.ordinal0() as usize;
