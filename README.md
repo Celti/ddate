@@ -1,14 +1,13 @@
 # ddate 0.4.0
 This is a Rust crate providing output similar to the classic `ddate` tool once
-a part of `util-linux`. It extends
-[Chrono's](https://github.com/chronotope/chrono) `Datelike` trait to provide
+a part of `util-linux`. It extends [`chrono`'s] `Datelike` trait to provide
 Discordian calendar date output for such objects.
+
+The API not being expected to change, this crate's “minor” version is being
+kept in sync with [`chrono`'s] until that crate achieves 1.0.
 
 ## Usage
 ```rust
-extern crate chrono;
-extern crate ddate;
-
 use chrono::NaiveDate;
 use ddate::DiscordianDate;
 
@@ -41,4 +40,6 @@ AUTHORS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN
 ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-For more information, please refer to [http://unlicense.org/].
+For more information, please refer to <http://unlicense.org/>.
+
+[`chrono`'s]: https://github.com/chronotope/chrono
